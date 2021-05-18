@@ -34,11 +34,10 @@ app.post("/api/checkout", async (req, res) => {
   }
 }); 
 
-const app = express();
 app.get('/hacker', (req, res) => {
     res.send("soy to yacamartinez")
 });
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log('servidor escuchando en el puerto 3000');
+app.listen(process.env.PORT || 3001, () => {
+    console.log('servidor escuchando en el puerto 3001');
 })
