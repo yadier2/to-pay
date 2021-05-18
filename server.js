@@ -1,9 +1,44 @@
 const express = require('express');
 
+const Stripe = require("stripe"); 
+require('dotenv').config()
+const stripe = new Stripe(process.env.CLAVE); /* Variable de entorno*/
+const cors = require("cors");
+/* const port = process.env.PORT || 3001; */
+const app = express();
+
+app.use(cors({ origin: "http://localhost:3000" }));
+app.use(express.json());
+
+
+app.post("/api/checkout", async (req, res) => {
+  // you can get more data to find in a database, and so on
+ 
+  const { id, amount } = req.body;
+
+  try {
+    const payment = await stripe.paymentIntents.create({
+      amount,
+      currency: "USD",
+      description: "Gaming Keyboard ls",
+      payment_method: id,
+      confirm: true, //confirm the payment at the same time
+    });
+
+    console.log(payment);
+
+    return res.status(200).json({ message: "Successful Payment" });
+  } catch (error) {
+    console.log(error);
+    return res.json({ message: error.raw.message });
+  }
+}); 
+
 const app = express();
 app.get('/hacker', (req, res) => {
-    res.send("soy to haker")
+    res.send("soy to yacamartinez")
 });
+
 app.listen(process.env.PORT || 3000, () => {
     console.log('servidor escuchando en el puerto 3000');
 })
