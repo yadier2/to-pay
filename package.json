@@ -1,0 +1,24 @@
+{
+  "name": "to-pay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serve.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yadier2/to-pay.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yadier2/to-pay/issues"
+  },
+  "homepage": "https://github.com/yadier2/to-pay#readme"
+}
