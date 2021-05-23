@@ -14,13 +14,13 @@ app.use(express.json());
 app.post("/api/checkout", async (req, res) => {
   // you can get more data to find in a database, and so on
  
-  const { id, amount } = req.body;
+  const { id, amount ,description } = req.body;
 
   try {
     const payment = await stripe.paymentIntents.create({
       amount,
       currency: "USD",
-      description: "Gaming Keyboard ls",
+      description,
       payment_method: id,
       confirm: true, //confirm the payment at the same time
     });
@@ -35,7 +35,7 @@ app.post("/api/checkout", async (req, res) => {
 }); 
 
 app.get('/hacker', (req, res) => {
-    res.send("soy to yacamartinez")
+    res.send("hola...")
 });
 
 app.listen(process.env.PORT || 3001, () => {
