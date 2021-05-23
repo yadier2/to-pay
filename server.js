@@ -7,7 +7,7 @@ const cors = require("cors");
 /* const port = process.env.PORT || 3001; */
 const app = express();
 
-app.use(cors({ origin: "https://guappjolotas-j21lkfdv6-yadier2.vercel.app" }));
+app.use(cors({ origin: "https://guappjolotas-zsuce7k7x-yadier2.vercel.app/" }));
 app.use(express.json());
 
 
